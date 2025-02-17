@@ -1,0 +1,10 @@
+name: "Install dotfiles"
+description: "Install dotfiles"
+author: "Gerard Braad <me@gbraad.nl>"
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        curl -fsSL https://dotfiles.gbraad.nl/install.sh | sh
+        chsh -s /bin/zsh
+      shell: bash
