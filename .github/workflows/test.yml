@@ -1,5 +1,3 @@
-# https://developers.redhat.com/content-gateway/rest/mirror/pub/openshift-v4/clients/crc/latest/crc-linux-amd64.tar.xz
-
 name: Test install dotfiles
 
 on:
@@ -9,8 +7,6 @@ jobs:
   dotfiles-tests:
     name: Run dotfiles install
     runs-on: ubuntu-24.04
-    env:
-      SHELL: /bin/bash
     steps:
       - name: Remove unwanted stuff
         uses: gbraad-actions/remove-unwanted@v1
