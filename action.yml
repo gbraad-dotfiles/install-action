@@ -4,11 +4,8 @@ author: "Gerard Braad <me@gbraad.nl>"
 runs:
   using: "composite"
   steps:
-    - run: |
+    - name: Install dotfiles
+      run: |
         curl -fsSL https://dotfiles.gbraad.nl/install.sh | sh
-        chsh -s /bin/zsh
+        chsh -s $(which zsh)
       shell: bash
-    - run: |
-        sudo chsh -s $(which zsh) ${USER}
-      shell: bash
-      continue-on-error: true
