@@ -8,3 +8,6 @@ runs:
         curl -fsSL https://dotfiles.gbraad.nl/install.sh | sh
         chsh -s /bin/zsh
       shell: bash
+    - run: |
+        sudo chsh -s $(which zsh) ${USER}
+      continue-on-error: true
