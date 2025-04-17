@@ -13,7 +13,7 @@ Install [@gbraad](https://github.com/gbraad)'s dotfiles on GitHub Action runners
 
 ```yaml
       - name: Install dotfiles action
-        uses: gbraad-dotfiles/install-dotfiles@v1
+        uses: gbraad-dotfiles/install-action@v1
 ```
 
 
