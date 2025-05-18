@@ -1,5 +1,5 @@
-name: "Install dotfiles"
-description: "Install dotfiles"
+name: "gbraad's Dotfiles `install` action"
+description: "Install my dotfiles to automate developer environment and virtual machine related tasks"
 author: "Gerard Braad <me@gbraad.nl>"
 runs:
   using: "composite"

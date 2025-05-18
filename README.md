@@ -1,5 +1,5 @@
-Install Gerard Braad's dotfiles action
-======================================
+gbraad's Dotfiles `install` action
+==================================
 
 [!["Prompt"](https://raw.githubusercontent.com/gbraad/assets/gh-pages/icons/prompt-icon-64.png)](http://github.com/gbraad)
 
@@ -9,7 +9,7 @@ Install Gerard Braad's dotfiles action
 Install [@gbraad](https://github.com/gbraad)'s dotfiles on GitHub Action runners for debugging purposes
 
 
-## Usage
+### Usage
 
 ```yaml
       - name: Install dotfiles action
