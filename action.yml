@@ -3,11 +3,11 @@ description: "Install my dotfiles to automate developer environment and virtual 
 author: "Gerard Braad <me@gbraad.nl>"
 
 inputs:
-  chsh:
+  change-shell:
     description: "Whether to change the user's shell to zsh after installation"
     required: false
     default: "true"
-  sudo:
+  sudo-change-shell:
     description: "Use sudo when changing the shell"
     required: false
     default: "false"
@@ -23,10 +23,10 @@ runs:
       run: |
         curl -fsSL https://dotfiles.gbraad.nl/install.sh | sh
 
-        if [ "${{ inputs.chsh }}" = "true" ]; then
+        if [ "${{ inputs.change-shell }}" = "true" ]; then
           SHELL_PATH="$(which zsh)"
           TARGET_USER="${{ inputs.user }}"
-          if [ "${{ inputs.sudo }}" = "true" ]; then
+          if [ "${{ inputs.sudo-change-shell }}" = "true" ]; then
             sudo chsh -s "$SHELL_PATH" "$TARGET_USER"
           else
             chsh -s "$SHELL_PATH"
