@@ -1,11 +1,35 @@
 name: "gbraad's Dotfiles `install` action"
 description: "Install my dotfiles to automate developer environment and virtual machine related tasks"
 author: "Gerard Braad <me@gbraad.nl>"
+
+inputs:
+  chsh:
+    description: "Whether to change the user's shell to zsh after installation"
+    required: false
+    default: "true"
+  sudo:
+    description: "Use sudo when changing the shell"
+    required: false
+    default: "false"
+  user:
+    description: "The username for which to change the shell"
+    required: false
+    default: "runner"
+
 runs:
   using: "composite"
   steps:
     - name: Install dotfiles
       run: |
         curl -fsSL https://dotfiles.gbraad.nl/install.sh | sh
-        chsh -s $(which zsh) || true
+
+        if [ "${{ inputs.chsh }}" = "true" ]; then
+          SHELL_PATH="$(which zsh)"
+          TARGET_USER="${{ inputs.user }}"
+          if [ "${{ inputs.sudo }}" = "true" ]; then
+            sudo chsh -s "$SHELL_PATH" "$TARGET_USER"
+          else
+            chsh -s "$SHELL_PATH"
+          fi
+        fi
       shell: bash
