@@ -7,5 +7,5 @@ runs:
     - name: Install dotfiles
       run: |
         curl -fsSL https://dotfiles.gbraad.nl/install.sh | sh
-        chsh -s $(which zsh)
+        chsh -s $(which zsh) || true
       shell: bash
