@@ -15,13 +15,23 @@ inputs:
     description: "The username for which to change the shell"
     required: false
     default: "runner"
+  upstream:
+    description: "Whether to use the upstream dotfiles repository"
+    required: false
+    default: "false"
 
 runs:
   using: "composite"
   steps:
     - name: Install dotfiles
       run: |
-        curl -fsSL https://dotfiles.gbraad.nl/install.sh | sh
+        if [ "${{ inputs.upstream }}" = "true" ]; then
+          git clone https://github.com/gbraad-dotfiles/upstream.git ~/.dotfiles --depth 2
+          cd ~/.dotfiles
+          sh ./install.sh
+        else
+          curl -fsSL https://dotfiles.gbraad.nl/install.sh | sh
+        fi
 
         if [ "${{ inputs.change-shell }}" = "true" ]; then
           SHELL_PATH="$(which zsh)"
