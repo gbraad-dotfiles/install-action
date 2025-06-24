@@ -10,7 +10,7 @@ inputs:
   sudo-change-shell:
     description: "Use sudo when changing the shell"
     required: false
-    default: "false"
+    default: "true"
   user:
     description: "The username for which to change the shell"
     required: false
